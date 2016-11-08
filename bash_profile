@@ -4,7 +4,7 @@ PS1='\u:\W$ '
 # lsコマンドの設定
 ##
 alias ls='ls -G'
-alias ll='ls -l'
+alias ll='ls -lh'
 alias la='ls -A'
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
