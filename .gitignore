@@ -11,3 +11,11 @@
 # IDEA
 ##
 .idea/
+
+###
+# venv (Python3)
+##
+bin/
+include/
+lib/
+pyvenv.cfg
