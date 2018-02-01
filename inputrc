@@ -1,1 +1,5 @@
 set completion-ignore-case on
+
+# IntellijのAlt+矢印を有効化
+"\e\e[C": forward-word
+"\e\e[D": backward-word
