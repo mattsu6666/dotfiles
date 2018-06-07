@@ -26,3 +26,8 @@ export SBT_OPTS="-Dfile.encoding=UTF8 -Xmx1536M -XX:+UseConcMarkSweepGC -XX:+CMS
 ##
 HISTSIZE=
 HISTFILESIZE=
+
+###
+# gitのタブ補完
+##
+source /usr/local/etc/bash_completion.d/git-completion.bash
