@@ -15,7 +15,7 @@ if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
 
-export JAVA_HOME=`/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home -v "1.8"`
+export JAVA_HOME=`/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home -v "10"`
 PATH=${JAVA_HOME}/bin:${PATH}
 PATH=${HOME}/.embulk/bin:${PATH}
 
@@ -31,3 +31,8 @@ HISTFILESIZE=
 # gitのタブ補完
 ##
 source /usr/local/etc/bash_completion.d/git-completion.bash
+
+###
+# golang
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
