@@ -36,3 +36,8 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 # golang
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
+
+###
+# node
+##
+export PATH=$HOME/.nodebrew/current/bin:$PATH
