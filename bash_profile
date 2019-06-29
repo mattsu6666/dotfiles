@@ -37,3 +37,8 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 # golang
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
+
+###
+# Rust
+##
+export PATH="$HOME/.cargo/bin:$PATH"
