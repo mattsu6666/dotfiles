@@ -31,7 +31,9 @@ HISTFILESIZE=
 ###
 # gitのタブ補完
 ##
-source /usr/local/etc/bash_completion.d/git-completion.bash
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+BREW_SCRIPTS="$(brew --prefix)/etc/bash_completion.d"
+[ -f "$BREW_SCRIPTS/git-prompt.sh" ] && . "$BREW_SCRIPTS/git-prompt.sh" && PS1='[\u:\W$(__git_ps1 "(%s)")]\$ '
 
 ###
 # golang
