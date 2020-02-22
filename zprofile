@@ -24,11 +24,6 @@ PATH=$HOME/.nodebrew/current/bin:${PATH}
 export SBT_OPTS="-Dfile.encoding=UTF8 -Xmx1536M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss2M  -Duser.timezone=JST"
 
 ###
-# gitのタブ補完
-##
-source /usr/local/etc/bash_completion.d/git-completion.bash
-
-###
 # golang
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
@@ -59,3 +54,10 @@ setopt hist_ignore_all_dups
 
 # 開始と終了を記録
 setopt EXTENDED_HISTORY
+
+###
+# gitの補完
+##
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+autoload -U compinit
+compinit -u
