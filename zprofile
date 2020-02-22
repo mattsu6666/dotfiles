@@ -11,8 +11,8 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 ###
 # for mac
 ##
-if [ -f ~/.bashrc ]; then
-  . ~/.bashrc
+if [ -f ~/.zshrc ]; then
+  . ~/.zshrc
 fi
 
 export JAVA_HOME=`/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home -v "1.8"`
