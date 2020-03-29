@@ -61,3 +61,8 @@ setopt EXTENDED_HISTORY
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 autoload -U compinit
 compinit -u
+
+###
+# Rust
+##
+export PATH="$HOME/.cargo/bin:$PATH"
