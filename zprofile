@@ -1,4 +1,6 @@
-PROMPT='%n:%~$ '
+autoload -U promptinit
+promptinit
+PROMPT='%n:%c'
 
 ###
 # lsコマンドの設定
@@ -11,17 +13,33 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 ###
 # for mac
 ##
-if [ -f ~/.zshrc ]; then
-  . ~/.zshrc
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
 fi
 
-export JAVA_HOME=`/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home -v "1.8"`
+export JAVA_HOME=`/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home -v "1.8.0_192"`
 PATH=${JAVA_HOME}/bin:${PATH}
 PATH=${HOME}/.embulk/bin:${PATH}
 PATH=$HOME/.nodebrew/current/bin:${PATH}
 #PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 
-export SBT_OPTS="-Dfile.encoding=UTF8 -Xmx1536M -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss2M  -Duser.timezone=JST"
+export SBT_OPTS="-Dfile.encoding=UTF8 -Xmx4G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss2M  -Duser.timezone=JST"
+
+###
+# gitのタブ補完
+##
+source /usr/local/etc/bash_completion.d/git-completion.bash
+
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats '(%b)'
+
+# Set up the prompt (with git branch name)
+setopt PROMPT_SUBST
+PROMPT='%n:%c${vcs_info_msg_0_}$ '
 
 ###
 # golang
@@ -55,14 +73,22 @@ setopt hist_ignore_all_dups
 # 開始と終了を記録
 setopt EXTENDED_HISTORY
 
-###
-# gitの補完
-##
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-autoload -U compinit
-compinit -u
+# ghq
+function peco-src () {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
 
 ###
-# Rust
+# zsh completion
 ##
-export PATH="$HOME/.cargo/bin:$PATH"
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+
+autoload -U compinit
+compinit
