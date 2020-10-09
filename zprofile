@@ -17,7 +17,7 @@ if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
 
-export JAVA_HOME=`/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home -v "1.8.0_192"`
+export JAVA_HOME=`/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home -v "11.0.8"`
 PATH=${JAVA_HOME}/bin:${PATH}
 PATH=${HOME}/.embulk/bin:${PATH}
 PATH=$HOME/.nodebrew/current/bin:${PATH}
@@ -28,7 +28,9 @@ export SBT_OPTS="-Dfile.encoding=UTF8 -Xmx4G -XX:+UseConcMarkSweepGC -XX:+CMSCla
 ###
 # gitのタブ補完
 ##
-source /usr/local/etc/bash_completion.d/git-completion.bash
+if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+  . /opt/local/etc/profile.d/bash_completion.sh
+fi
 
 # Load version control information
 autoload -Uz vcs_info
