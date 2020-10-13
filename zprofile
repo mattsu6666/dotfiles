@@ -90,6 +90,7 @@ bindkey '^]' peco-src
 # zsh completion
 ##
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*' menu false
 
 autoload -U compinit
 compinit
