@@ -1,6 +1,5 @@
 autoload -U promptinit
 promptinit
-PROMPT='%n:%c'
 
 ###
 # lsコマンドの設定
