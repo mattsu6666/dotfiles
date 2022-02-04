@@ -41,6 +41,7 @@ zstyle ':vcs_info:git:*' formats '(%b)'
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
 PROMPT='%n:%c${vcs_info_msg_0_}$ '
+PS1='%n:%c${vcs_info_msg_0_}$ '
 
 ###
 # golang
