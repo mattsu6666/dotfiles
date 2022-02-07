@@ -16,7 +16,7 @@ if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
 
-export JAVA_HOME=`/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home -v "11.0.8"`
+export JAVA_HOME=`/usr/libexec/java_home -v "11.0.8"`
 PATH=${JAVA_HOME}/bin:${PATH}
 PATH=${HOME}/.embulk/bin:${PATH}
 PATH=$HOME/.nodebrew/current/bin:${PATH}
