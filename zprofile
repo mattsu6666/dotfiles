@@ -20,6 +20,7 @@ export JAVA_HOME=`/usr/libexec/java_home -v "11.0.8"`
 PATH=${JAVA_HOME}/bin:${PATH}
 PATH=${HOME}/.embulk/bin:${PATH}
 PATH=$HOME/.nodebrew/current/bin:${PATH}
+PATH=${HOME}/.cargo/bin:${PATH}
 #PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 
 export SBT_OPTS="-Dfile.encoding=UTF8 -Xmx4G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss2M  -Duser.timezone=JST"
