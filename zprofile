@@ -10,6 +10,11 @@ alias la='ls -A'
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
 ###
+# gsed to sed
+##
+alias sed='gsed'
+
+###
 # for mac
 ##
 if [ -f ~/.bashrc ]; then
